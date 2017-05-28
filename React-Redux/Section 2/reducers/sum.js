@@ -9,7 +9,8 @@ function sum(currentState, action) {
     
     switch (action.type) {
         case 'SUM':
-            nextState = (parseInt(action.a) || 0) + (parseInt(action.b) || 0);        
+            nextState = (parseInt(action.a) || 0) + (parseInt(action.b) || 0); 
+            throw Error('Unhandled exception occurred.');
             break;
         default:
             nextState = currentState;
