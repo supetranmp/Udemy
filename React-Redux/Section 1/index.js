@@ -2,31 +2,15 @@
 var store = Redux.createStore(combineReducer);
 
 // Render
-var valueElement = document.getElementById('value');
-var total = document.getElementById('total');
-
 function render() {
     var state = store.getState();
+
+    var valueElement = document.getElementById('value');
     valueElement.innerHTML = state.count;
+    
+    var total = document.getElementById('total');
     total.innerHTML = state.sum;
 };
-render();
+
 store.subscribe(render);
-
-// On click handlers
-document.getElementById('decrement')
-    .addEventListener('click', function () {
-        store.dispatch(decrement());
-    });
-
-document.getElementById('incrementAsync')
-    .addEventListener('click', function () {
-        store.dispatch(increment());
-    });
-
-document.getElementById('sum')
-    .addEventListener('click', function () {
-        var a = document.getElementById('a').value;
-        var b = document.getElementById('b').value;
-        store.dispatch(getSum(a, b));
-    });
+render();
